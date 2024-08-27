@@ -1,0 +1,134 @@
+# 1 "src/bus.pnml"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "src/bus.pnml"
+
+grf {
+    grfid: "NML\03";
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESC);
+    version: 0;
+    min_compatible_version: 0;
+}
+
+
+spriteset(spriteset_ytbus, "sprites/zkbus.png") {
+
+    [ 0, 0, 10, 40, -5, -20]
+    [ 11, 0, 33, 32, -17, -16]
+    [ 45, 0, 50, 20, -25, -10]
+    [ 96, 0, 33, 32, -17, -16]
+    [ 130, 0, 10, 40, -5, -20]
+    [ 141, 0, 33, 32, -17, -16]
+    [ 175, 0, 50, 20, -25, -10]
+    [ 226, 0, 33, 32, -17, -16]
+}
+alternative_sprites(spriteset_ytbus, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "sprites/zkbus.png") {
+  [ 0, 0, 10, 40, -5, -20]
+    [ 11, 0, 33, 32, -17, -16]
+    [ 45, 0, 50, 20, -25, -10]
+    [ 96, 0, 33, 32, -17, -16]
+    [ 130, 0, 10, 40, -5, -20]
+    [ 141, 0, 33, 32, -17, -16]
+    [ 175, 0, 50, 20, -25, -10]
+    [ 226, 0, 33, 32, -17, -16]
+}
+spriteset(spriteset_klbus, "sprites/xmqbus.png") {
+
+     [ 0, 0, 10, 40, -5, -20]
+    [ 11, 0, 33, 32, -17, -16]
+    [ 45, 0, 50, 20, -25, -10]
+    [ 96, 0, 33, 32, -17, -16]
+    [ 130, 0, 10, 40, -5, -20]
+    [ 141, 0, 33, 32, -17, -16]
+    [ 175, 0, 50, 20, -25, -10]
+    [ 226, 0, 33, 32, -17, -16]
+}
+alternative_sprites(spriteset_klbus, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "sprites/xmqbus.png") {
+  [ 0, 0, 10, 40, -5, -20]
+    [ 11, 0, 33, 32, -17, -16]
+    [ 45, 0, 50, 20, -25, -10]
+    [ 96, 0, 33, 32, -17, -16]
+    [ 130, 0, 10, 40, -5, -20]
+    [ 141, 0, 33, 32, -17, -16]
+    [ 175, 0, 50, 20, -25, -10]
+    [ 226, 0, 33, 32, -17, -16]
+}
+
+
+item(FEAT_ROADVEHS, item_yt) {
+    property {
+
+        name: string(STR_NAME_ZK);
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date: date(2010,01,01);
+        model_life: 65;
+
+        vehicle_life: 95;
+        reliability_decay: 20;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes: bitmask(CC_REFRIGERATED, CC_PIECE_GOODS, CC_EXPRESS);
+        loading_speed: 90;
+        cost_factor: 108;
+        running_cost_factor: 90;
+
+
+
+        sprite_id: SPRITE_ID_NEW_ROADVEH;
+        speed: 69 km/h;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+        refit_cost: 0;
+
+        running_cost_base: RUNNING_COST_ROADVEH;
+        power: 120 hp;
+        weight: 16.5 ton;
+
+        cargo_capacity: 81;
+        sound_effect: SOUND_DEPARTURE_OLD_RV_1;
+
+    }
+
+
+    graphics {
+        default: spriteset_ytbus;
+    }
+}
+
+
+item(FEAT_ROADVEHS, item_kl) {
+    property {
+
+        name: string(STR_NAME_XMQ);
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date: date(2010,01,01);
+        model_life: 65;
+
+        vehicle_life: 95;
+        reliability_decay: 20;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes: bitmask(CC_REFRIGERATED, CC_PIECE_GOODS, CC_EXPRESS);
+        loading_speed: 90;
+        cost_factor: 108;
+        running_cost_factor: 90;
+
+
+
+        sprite_id: SPRITE_ID_NEW_ROADVEH;
+        speed: 69 km/h;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+        refit_cost: 0;
+
+        running_cost_base: RUNNING_COST_ROADVEH;
+        power: 120 hp;
+        weight: 16.5 ton;
+
+        cargo_capacity: 81;
+        sound_effect: SOUND_DEPARTURE_OLD_RV_1;
+
+    }
+
+
+    graphics {
+        default: spriteset_klbus;
+    }
+}
