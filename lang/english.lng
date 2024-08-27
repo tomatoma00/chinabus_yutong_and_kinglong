@@ -1,0 +1,9 @@
+##grflangid 0x01
+#grf stuff
+STR_GRF_NAME			:China Bus Yutong and KingLong
+STR_GRF_DESC			:China Bus, Yutong and KingLong, welcome to my bilibili (uid: 168818235) ,my homepage:  https://github.com/tomatoma00/chinabus_yutong_and_kinglong, thanks for you suggestions!
+
+STR_NAME_ZK			:Yutong 10m {STRING}
+STR_DESC_ZK			:Yutong 10m
+STR_NAME_XMQ			:Kinglong 10m {STRING}
+STR_DESC_XMQ			:Kinglong 10m
