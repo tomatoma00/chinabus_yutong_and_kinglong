@@ -1,0 +1,165 @@
+//define the grf
+grf {
+    grfid: "NML\03";
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESC);
+    version: 0;
+    min_compatible_version: 0;
+}
+
+//graphics definition
+spriteset(spriteset_ytbus, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "sprites/zkbus.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 0,      0,        10,    40,      -5,      -20]
+    [ 11,     0,       33,    32,     -17,       -16]
+    [ 45,     0,       50,    20,     -25,       -10]
+    [ 96,     0,       33,    32,      -17,       -16]
+    [ 130,    0,        10,    40,      -5,      -20]
+    [ 141,    0,       33,    32,     -17,       -16]
+    [ 175,    0,       50,    20,     -25,       -10]
+    [ 226,    0,       33,    32,      -17,       -16]
+}
+
+spriteset(spriteset_klbus, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "sprites/xmqbus.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+     [ 0,      0,        10,    40,      -5,      -20]
+    [ 11,     0,       33,    32,     -17,       -16]
+    [ 45,     0,       50,    20,     -25,       -10]
+    [ 96,     0,       33,    32,      -17,       -16]
+    [ 130,    0,        10,    40,      -5,      -20]
+    [ 141,    0,       33,    32,     -17,       -16]
+    [ 175,    0,       50,    20,     -25,       -10]
+    [ 226,    0,       33,    32,      -17,       -16]
+}
+
+spriteset(spriteset_xmlbus, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "sprites/xmlbus.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+     [ 0,      0,        10,    40,      -5,      -20]
+    [ 11,     0,       33,    32,     -17,       -16]
+    [ 45,     0,       50,    20,     -25,       -10]
+    [ 96,     0,       33,    32,      -17,       -16]
+    [ 130,    0,        10,    40,      -5,      -20]
+    [ 141,    0,       33,    32,     -17,       -16]
+    [ 175,    0,       50,    20,     -25,       -10]
+    [ 226,    0,       33,    32,      -17,       -16]
+}
+
+
+
+/* Define the road vehicle */
+item(FEAT_ROADVEHS, item_yt) {
+    property {
+        /* Properties common to all vehicle types */
+        name:                           string(STR_NAME_ZK);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date:              date(2010,01,01);
+        model_life:                     65;
+        /* retire_early not set, use default retirement behaviour */
+        vehicle_life:                   95;
+        reliability_decay:              20;
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   bitmask(CC_REFRIGERATED, CC_PIECE_GOODS, CC_EXPRESS);
+        loading_speed:                  90;
+        cost_factor:                    108;
+        running_cost_factor:            90;
+        /* cargo_age_period is left at default */
+
+        /* RV-specific properties */
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        speed:                          69 km/h;
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC);
+        refit_cost:                     0; // Refitting is free
+        /* callback_flags are not set, no need to manually enable callbacks */
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        power:                          120 hp;
+        weight:                         16.5 ton;
+        /* TE and air drag coefficient is left at default */
+        cargo_capacity:                 81;
+        sound_effect:                   SOUND_DEPARTURE_OLD_RV_1;
+        /* Visual effect is left at default (no effect) */
+    }
+
+    /* Define graphics */
+    graphics {
+        default: spriteset_ytbus; // use a goods container for a (loaded) flatbed truck
+    }
+}
+
+/* Define the road vehicle */
+item(FEAT_ROADVEHS, item_kl) {
+    property {
+        /* Properties common to all vehicle types */
+        name:                           string(STR_NAME_XMQ);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date:              date(2010,01,01);
+        model_life:                     65;
+        /* retire_early not set, use default retirement behaviour */
+        vehicle_life:                   95;
+        reliability_decay:              20;
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   bitmask(CC_REFRIGERATED, CC_PIECE_GOODS, CC_EXPRESS);
+        loading_speed:                  90;
+        cost_factor:                    108;
+        running_cost_factor:            90;
+        /* cargo_age_period is left at default */
+
+        /* RV-specific properties */
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        speed:                          69 km/h;
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC);
+        refit_cost:                     0; // Refitting is free
+        /* callback_flags are not set, no need to manually enable callbacks */
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        power:                          120 hp;
+        weight:                         16.5 ton;
+        /* TE and air drag coefficient is left at default */
+        cargo_capacity:                 81;
+        sound_effect:                   SOUND_DEPARTURE_OLD_RV_1;
+        /* Visual effect is left at default (no effect) */
+    }
+
+    /* Define graphics */
+    graphics {
+        default: spriteset_klbus; // use a goods container for a (loaded) flatbed truck
+    }
+}
+
+/* Define the road vehicle */
+item(FEAT_ROADVEHS, item_xml) {
+    property {
+        /* Properties common to all vehicle types */
+        name:                           string(STR_NAME_XML);
+        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date:              date(2010,01,01);
+        model_life:                     65;
+        /* retire_early not set, use default retirement behaviour */
+        vehicle_life:                   95;
+        reliability_decay:              20;
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes:   bitmask(CC_REFRIGERATED, CC_PIECE_GOODS, CC_EXPRESS);
+        loading_speed:                  90;
+        cost_factor:                    108;
+        running_cost_factor:            90;
+        /* cargo_age_period is left at default */
+
+        /* RV-specific properties */
+        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+        speed:                          69 km/h;
+        misc_flags:                     bitmask(ROADVEH_FLAG_2CC);
+        refit_cost:                     0; // Refitting is free
+        /* callback_flags are not set, no need to manually enable callbacks */
+        running_cost_base:              RUNNING_COST_ROADVEH;
+        power:                          120 hp;
+        weight:                         16.5 ton;
+        /* TE and air drag coefficient is left at default */
+        cargo_capacity:                 81;
+        sound_effect:                   SOUND_DEPARTURE_OLD_RV_1;
+        /* Visual effect is left at default (no effect) */
+    }
+
+    /* Define graphics */
+    graphics {
+        default: spriteset_xmlbus; // use a goods container for a (loaded) flatbed truck
+    }
+}
+
